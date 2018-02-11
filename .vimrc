@@ -36,6 +36,8 @@ set shiftwidth=4
 set expandtab
 syntax on
 
+set clipboard=unnamed
+
 au BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \ exe "norm g`\"" |

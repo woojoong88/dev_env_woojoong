@@ -21,9 +21,15 @@ sleep 1
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
+# Install git
+sudo apt-get install git git-review -y
+
 # setup essential tools for C/C++/build/etc
 sudo apt-get install wget tar libevent-dev libncurses-dev -y
 sudo apt-get install build-esential gcc g++ gdb -y
+sudo apt-get install ctags -y
+sudo apt-get install cscope -y
+
 # setup ssh server
 sudo apt-get install openssh-server -y
 
@@ -67,11 +73,12 @@ fi
 IS_SET=$(grep -r "tmux_env" ~/.bashrc | wc -l)
 if [ $IS_SET != "0" ]
 then
-	echo "Add tmux environment"
+	echo "Already have tmux environment"
 else
 	echo ". $DIR/tmux_env" >> ~/.bashrc
 	source ~/.bashrc
 fi
+
 
 # Manually setup according to Ubuntu 16.04
 echo "GRUB_CMDLINE_LINUX=\"net.ifnames=0\" into /etc/default/grub"
