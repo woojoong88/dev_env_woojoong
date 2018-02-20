@@ -2,10 +2,6 @@
 
 DIR=$(pwd)
 
-# git setup
-git config --global user.name "Woojoong Kim"
-git config --global user.email "woojoong.m.kim@gmail.com"
-
 # ssh key setup
 if [ ! -e ~/.ssh/id_rsa.pub ]
 then
@@ -23,6 +19,10 @@ sudo apt-get upgrade -y
 
 # Install git
 sudo apt-get install git git-review -y
+
+# git setup
+git config --global user.name "Woojoong Kim"
+git config --global user.email "woojoong.m.kim@gmail.com"
 
 # setup essential tools for C/C++/build/etc
 sudo apt-get install wget tar libevent-dev libncurses-dev -y
