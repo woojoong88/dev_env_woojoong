@@ -8,6 +8,14 @@ then
 	ssh-keygen -t rsa
 fi
 
+# setup .exrc
+echo "set number" > ~/.exrc
+echo "set nocp" >> ~/.exrc
+echo "set bs=2" >> ~/.exrc
+echo "set ts=4" >> ~/.exrc
+echo "set expandtab" >> ~/.exrc
+echo "set shiftwidth=4" >> ~/.exrc
+
 # Setup passwordless environment
 sudo vi /etc/sudoers
 
