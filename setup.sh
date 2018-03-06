@@ -87,6 +87,7 @@ else
 	source ~/.bashrc
 fi
 
+echo "Plugin 'wakatime/vim-wakatime'" >> ~/.vimrc && vim +PluginInstall
 
 # Manually setup according to Ubuntu 16.04
 echo "GRUB_CMDLINE_LINUX=\"net.ifnames=0\" into /etc/default/grub"
