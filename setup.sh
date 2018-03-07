@@ -87,6 +87,8 @@ else
 	source ~/.bashrc
 fi
 
+# for Wakatime
+source ./bash-wakatime.sh
 echo "Plugin 'wakatime/vim-wakatime'" >> ~/.vimrc && vim +PluginInstall
 
 # Manually setup according to Ubuntu 16.04
