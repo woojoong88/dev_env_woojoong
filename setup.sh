@@ -37,6 +37,9 @@ sudo apt-get install wget tar libevent-dev libncurses-dev -y
 sudo apt-get install build-esential gcc g++ gdb -y
 sudo apt-get install ctags -y
 sudo apt-get install cscope -y
+sudo apt-get install python-pip python-dev -y
+sudo pip-install --upgrade pip
+sudo pip-install --upgrade virtualenv
 
 # setup ssh server
 sudo apt-get install openssh-server -y
@@ -88,6 +91,7 @@ else
 fi
 
 # for Wakatime
+sudo pip install wakatime
 source ./bash-wakatime.sh
 echo "Plugin 'wakatime/vim-wakatime'" >> ~/.vimrc && vim +PluginInstall
 
