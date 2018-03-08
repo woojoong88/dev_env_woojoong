@@ -93,7 +93,9 @@ fi
 # for Wakatime
 sudo pip install wakatime
 cp ./wakatime.cfg ~/
-source ./bash-wakatime.sh
+cp ./bash-wakatime.sh ~/
+echo "source ./bash-wakatime.sh" >> ~/.bashrc
+source ~/.bashrc
 echo "Plugin 'wakatime/vim-wakatime'" >> ~/.vimrc && vim +PluginInstall
 
 # Manually setup according to Ubuntu 16.04
