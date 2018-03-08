@@ -92,6 +92,7 @@ fi
 
 # for Wakatime
 sudo pip install wakatime
+cp ./wakatime.cfg ~/
 source ./bash-wakatime.sh
 echo "Plugin 'wakatime/vim-wakatime'" >> ~/.vimrc && vim +PluginInstall
 
