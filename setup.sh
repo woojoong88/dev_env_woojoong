@@ -34,7 +34,7 @@ git config --global user.email "woojoong.m.kim@gmail.com"
 
 # setup essential tools for C/C++/build/etc
 sudo apt-get install wget tar libevent-dev libncurses-dev -y
-sudo apt-get install build-esential gcc g++ gdb -y
+sudo apt-get install build-essential gcc g++ gdb -y
 sudo apt-get install ctags -y
 sudo apt-get install cscope -y
 sudo apt-get install python-pip python-dev -y
@@ -91,12 +91,12 @@ else
 fi
 
 # for Wakatime
-sudo pip install wakatime
-cp ./wakatime.cfg ~/
-cp ./bash-wakatime.sh ~/
-echo "source ./bash-wakatime.sh" >> ~/.bashrc
-source ~/.bashrc
-echo "Plugin 'wakatime/vim-wakatime'" >> ~/.vimrc && vim +PluginInstall
+#sudo pip install wakatime
+#cp ./wakatime.cfg ~/
+#cp ./bash-wakatime.sh ~/
+#echo "source ./bash-wakatime.sh" >> ~/.bashrc
+#source ~/.bashrc
+#echo "Plugin 'wakatime/vim-wakatime'" >> ~/.vimrc && vim +PluginInstall
 
 # Manually setup according to Ubuntu 16.04
 echo "GRUB_CMDLINE_LINUX=\"net.ifnames=0\" into /etc/default/grub"
