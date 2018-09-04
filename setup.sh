@@ -98,6 +98,8 @@ fi
 #source ~/.bashrc
 #echo "Plugin 'wakatime/vim-wakatime'" >> ~/.vimrc && vim +PluginInstall
 
+./cloudlab-disk-setup.sh
+
 # Manually setup according to Ubuntu 16.04
 echo "GRUB_CMDLINE_LINUX=\"net.ifnames=0\" into /etc/default/grub"
 echo "Then, run \$ sudo update-grub and reboot"
