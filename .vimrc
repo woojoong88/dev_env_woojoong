@@ -17,6 +17,8 @@ set nocompatible               " be iMproved
  " git repos on your local machine (ie. when working on your own plugin)
 Plugin 'dracula/vim'
 Plugin 'The-NERD-Tree'
+Bundle 'Valloric/YouCompleteMe'
+
 
  filetype plugin indent on     " required!
  "
