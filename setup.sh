@@ -79,8 +79,7 @@ cd $DIR/tmux-src/tmux-2.6 && ./configure && make clean && make && sudo sh -c "ma
 cd $DIR && rm -rf tmux-src
 
 git clone https://github.com/woojoong88/tmux-config tmux-config
-rm -rf ./tmux-config/tmux.conf
-rm -rf .tmux-config/tmux.remote.conf
-cp tmux.conf ./tmux-conf
+rm -rf ./tmux-config/tmux/tmux.conf
+cp .tmux.conf ./tmux-conf/tmux/
 ./tmux-config/install.sh
 
