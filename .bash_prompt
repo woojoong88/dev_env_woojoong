@@ -1,0 +1,63 @@
+
+#PS1="\u:\w\\$ "
+
+# Creates the bash_prompt function
+bash_prompt () {
+
+# Checks to see if the current directory is a git repo or not
+gitcheck_branch="$(git branch &>/dev/null; if [ $? -eq 0 ]; then echo "yes"; else echo "no"; fi)"
+__git_ps1="$(git branch 2>/dev/null | sed -n "s/*\(.*\)/\1/p")"
+__git_username="$(git config --list | grep user.name | awk -F "=" '{print $2}' | tail -1)"
+__git_useremail="$(git config --list | grep user.email | awk -F "=" '{print $2}' | tail -1)"
+if [ $gitcheck_branch == "yes" ];
+then
+        # If we are in a git repo, then check to see if there are uncommitted files
+        gitcheck_status="$(git status | grep "nothing to commit" > /dev/null 2>&1; if [ $? -eq 0 ]; then echo "clean"; else echo "unclean"; fi)"
+
+    if [ $gitcheck_status == "clean" ];
+    then
+                # If there are no uncommitted files, then set the color of the git branch name to green
+        git_prompt='\[\e[0m\]\[\e[0;36m\]─\[\033[0;32m\][$__git_ps1: $__git_username ($__git_useremail) ]'
+    else
+                # If there are uncommitted files, set it to red.
+        git_prompt='\[\e[0m\]\[\e[0;36m\]─\[\033[0;31m\][$__git_ps1: $__git_username ($__git_useremail) ]'
+    fi
+else
+        # If we're not in a git repo, then display nothing
+    git_prompt=""
+fi
+
+# This is what actually sets our PS1. The ${git prompt} is what will display our git status.
+#PS1="\[\e[0;36m\]┌─\[\e[1;37m\][\u@\h]\[\e[0m\]\[\e[0;36m\]─\[\e[0;93m\](\w)${git_prompt} \n\[\e[0;36m\]└─\[\e[1;32m\][\t]\[\e[0m\]\$(if [[ \$? == 0 ]]; then printf \" \xF0\x9F\x98\x87\"; echo \" \[\033[0;32m\]$\"; else printf \" \xF0\x9F\x98\x88\"; echo \" \[\033[0;31m\]$\"; fi)\[\033[00m\] "
+PS1="\[\e[0;36m\]┌─\[\e[1;37m\][\u@\h]${git_prompt}\n\[\e[0;36m\]└─\[\e[1;32m\]\[\e[0;93m\][\w]\[\e[0m\]\$(if [[ \$? == 0 ]]; then printf \" \xF0\x9F\x98\x87\"; echo \" \[\033[0;32m\]$\"; else printf \" \xF0\x9F\x98\x88\"; echo \" \[\033[0;31m\]$\"; fi)\[\033[00m\] "
+
+}
+# PROMPT_COMMAND is run just before the PS1 is printed. We've set it to run our bash_prompt function.
+PROMPT_COMMAND=bash_prompt
+
+#export TERM="xterm-color"
+export TERM="xterm"
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+source ~/.bashrc
+
+_complete_ssh_hosts ()
+{
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    comp_ssh_hosts=`cat ~/.ssh/known_hosts | \
+            cut -f 1 -d ' ' | \
+            sed -e s/,.*//g | \
+            grep -v ^# | \
+            uniq | \
+            grep -v "\[" ;
+            cat ~/.ssh/config | \
+            grep "^Host " | \
+            awk '{print $2}'
+            `
+    COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur) )
+    return 0
+}
+
+complete -F _complete_ssh_hosts ssh
