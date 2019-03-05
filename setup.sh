@@ -55,6 +55,10 @@ sudo apt install openssh-server
 # Install htop
 sudo apt install htop
 
+# Copy bash prompt
+cp .bash_prompt ~/.bash_prompt
+echo "source .bash_prompt" >> ~/.bashrc
+
 # Install vim
 sudo apt install vim
 
@@ -74,28 +78,5 @@ VERSION=2.6 && mkdir tmux-src && wget -qO- https://github.com/tmux/tmux/releases
 cd $DIR/tmux-src/tmux-2.6 && ./configure && make clean && make && sudo sh -c "make install"
 cd $DIR && rm -rf tmux-src
 
-if [ "$1" = "main" ]
-then
-    git clone https://github.com/woojoong88/tmux-config tmux-config
-    rm -rf ./tmux-config/tmux.conf
-    rm -rf .tmux-config/tmux.remote.conf
-    cp tmux.conf ./tmux-conf
-    cp tmux.remote.conf ./tmux.remote.conf
-    ./tmux-config/install.sh
-else
-    rm -rf ~/.tmux
-    rm -rf ~/.tmux.conf
-    echo "set -g pane-active-border-bg green" > ~/.tmux.conf
-    echo "set -g pane-active-border-fg green" >> ~/.tmux.conf
-fi
-
-# tmux env setup
-IS_SET=$(grep -r "tmux_env" ~/.bashrc | wc -l)
-if [ $IS_SET != "0" ]
-then
-    echo "Already have tmux environment"
-else
-    echo ". $DIR/tmux_env" >> ~/.bashrc
-    source ~/.bashrc
-fi
-
+rm -rf ~/.tmux.conf
+cp .tmux.conf ~/.tmux.conf
