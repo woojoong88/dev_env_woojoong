@@ -78,6 +78,11 @@ VERSION=2.6 && mkdir tmux-src && wget -qO- https://github.com/tmux/tmux/releases
 cd $DIR/tmux-src/tmux-2.6 && ./configure && make clean && make && sudo sh -c "make install"
 cd $DIR && rm -rf tmux-src
 
+git clone https://github.com/woojoong88/tmux-config tmux-config
+rm -rf ./tmux-config/tmux.conf
+rm -rf .tmux-config/tmux.remote.conf
+./tmux-config/install.sh
+
 rm -rf ~/.tmux.conf
 rm -rf ~/.tmux
 cp .tmux.conf ~/.tmux.conf
