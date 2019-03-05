@@ -79,4 +79,5 @@ cd $DIR/tmux-src/tmux-2.6 && ./configure && make clean && make && sudo sh -c "ma
 cd $DIR && rm -rf tmux-src
 
 rm -rf ~/.tmux.conf
+rm -rf ~/.tmux
 cp .tmux.conf ~/.tmux.conf
