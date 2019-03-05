@@ -81,8 +81,6 @@ cd $DIR && rm -rf tmux-src
 git clone https://github.com/woojoong88/tmux-config tmux-config
 rm -rf ./tmux-config/tmux.conf
 rm -rf .tmux-config/tmux.remote.conf
+cp tmux.conf ./tmux-conf
 ./tmux-config/install.sh
 
-rm -rf ~/.tmux.conf
-rm -rf ~/.tmux
-cp .tmux.conf ~/.tmux.conf
