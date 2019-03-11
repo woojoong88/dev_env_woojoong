@@ -50,17 +50,17 @@ sudo pip-install --upgrade pip
 sudo pip-install --upgrade virtualenv
 
 # Install SSH server
-sudo apt install openssh-server
+sudo apt install openssh-server -y
 
 # Install htop
-sudo apt install htop
+sudo apt install htop -y
 
 # Copy bash prompt
 cp .bash_prompt ~/.bash_prompt
 echo "source .bash_prompt" >> ~/.bashrc
 
 # Install vim
-sudo apt install vim
+sudo apt install vim -y
 
 # Configure vim
 rm -rf ~/.vim
