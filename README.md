@@ -1,4 +1,6 @@
 # Woojoong's dev environment for Ubuntu (dev_env_woojoong)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4e3b7aab8ed46579978c99e06c3304e)](https://www.codacy.com/app/woojoong88/dev_env_woojoong?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=woojoong88/dev_env_woojoong&amp;utm_campaign=Badge_Grade)
+
 ![GitHub](https://img.shields.io/github/license/woojoong88/dev_env_woojoong.svg)
 ![GitHub top language](https://img.shields.io/github/languages/top/woojoong88/dev_env_woojoong.svg)
 ![GitHub language count](https://img.shields.io/github/languages/count/woojoong88/dev_env_woojoong.svg)
