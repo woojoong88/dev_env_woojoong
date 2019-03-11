@@ -32,7 +32,7 @@ echo "set expandtab" >> ~/.exrc
 echo "set shiftwidth=4" >> ~/.exrc
 
 # Setup passwordless environment
-sudo vi /etc/sudoers
+#sudo vi /etc/sudoers
 
 # Ubuntu Update
 sudo apt update -y
