@@ -2,8 +2,4 @@ language: generic
 
 sudo: required
 
-deploy:
-  provider: script
-  script: bash ./setup.sh
-  on:
-    branch: master
+script: bash ./setup.sh
