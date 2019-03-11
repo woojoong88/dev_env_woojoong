@@ -19,7 +19,8 @@ DIR=$(pwd)
 # SSH key setup
 if [ ! -e ~/.ssh/id_rsa.pub ]
 then
-    ssh-keygen -t rsa
+#   ssh-keygen -t rsa
+ssh-keygen -t rsa -q -f "$HOME/.ssh/id_rsa" -N ""
 fi
 
 # Setup .exrc
