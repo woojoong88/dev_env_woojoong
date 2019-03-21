@@ -56,3 +56,8 @@ do
         sudo ln -s /mnt/extra/$DIR /var/lib/$DIR
     fi
 done
+
+sudo mkdir -p /var/lib/libvirt
+sudo mkdir -p /mny/extra/images
+sudo chmod -R a+rwx /mnt/extra/images
+sudo ln -s /mnt/extra/images /var/lib/libvirt/images
