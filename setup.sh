@@ -58,7 +58,7 @@ sudo apt install htop -y
 
 # Copy bash prompt
 cp .bash_prompt ~/.bash_prompt
-echo "source .bash_prompt" >> ~/.bashrc
+echo "source ~/.bash_prompt" >> ~/.bashrc
 
 # Install vim
 sudo apt install vim -y
@@ -83,4 +83,7 @@ git clone https://github.com/woojoong88/tmux-config tmux-config
 rm -rf ./tmux-config/tmux/tmux.conf
 cp .tmux.conf ./tmux-config/tmux/tmux.conf
 ./tmux-config/install.sh
+
+# change git editor to vim
+git config --global core.editor vim
 
